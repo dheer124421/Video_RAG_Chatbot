@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat With Video</title>
+</head>
+
+<body>
+
+    <h1>Podcast Chat Bot</h1>
+
+    <iframe width="600" height="300" src="https://www.youtube.com/embed/Rni7Fz7208c" title="YouTube video player"
+        frameborder="0" allowfullscreen>
+    </iframe>
+
+    <br><br>
+
+    <form method="POST">
+
+        <input type="text" name="question" placeholder="Ask a question" required>
+
+        <button type="submit">
+            Ask
+        </button>
+
+    </form>
+
+    {% if answer %}
+
+        <h2>Answer</h2>
+
+        <p>{{ answer }}</p>
+
+        <h3>Relevant Video Sections</h3>
+
+        <ul>
+
+        {% for mention in relevant_mentions %}
+
+        <li>
+
+        <a
+        href="https://www.youtube.com/watch?v=Rni7Fz7208c&t={{ mention.seconds }}s"
+        target="_blank">
+
+        {{ mention.time }}
+
+        </a>
+
+        </li>
+
+        {% endfor %}
+
+        </ul>
+    {% endif %}
+
+</body>
+
+</html>

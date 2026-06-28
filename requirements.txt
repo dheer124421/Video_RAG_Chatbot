@@ -1,0 +1,6 @@
+Flask
+google-generativeai
+python-dotenv
+sentence-transformers
+scikit-learn
+youtube-transcript-api
