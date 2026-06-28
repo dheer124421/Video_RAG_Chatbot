@@ -8,18 +8,32 @@ Long-form video content (interviews, podcasts, lectures) is hard to search. This
 
 ## 🖼️ Demo
 
-> *(Add a screen recording: type a question → show the answer + clickable timestamp jumping to that point in the video)*
+https://github.com/user-attachments/assets/b92b85d2-4a5a-4e3c-b0aa-a94f58ca2602
 
-## 🏗️ How it works (RAG pipeline)
+## 🏗️ How it works 
 
 ```
-YouTube Transcript API (extract transcript)
-   → Chunking (500-char chunks)
-   → Sentence Transformers — all-MiniLM-L6-v2 (generate embeddings)
-   → User question → embedded → cosine similarity search (Scikit-learn)
-   → Top-5 relevant chunks retrieved
-   → Gemini 2.5 Flash (generates grounded answer from retrieved context)
-   → Flask UI (displays answer + clickable timestamps)
+YouTube Video
+        ↓
+Transcript Extraction
+        ↓
+Chunking
+        ↓
+Embeddings
+        ↓
+Store in JSON
+        ↓
+User Question
+        ↓
+Question Embedding
+        ↓
+Cosine Similarity Search
+        ↓
+Top Relevant Chunks
+        ↓
+Gemini
+        ↓
+Answer + Timestamp
 ```
 
 ## 🛠️ Tech Stack
